@@ -1,0 +1,614 @@
+html{
+
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+}
+
+
+/*---------------------------Pre Loader Animation Styling Section Here------------------------------------*/
+
+
+#preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(255, 255, 255, 0.8); /* semi-transparent white */
+	backdrop-filter: blur(2px); /* applies blur to whatever's behind */
+	-webkit-backdrop-filter: blur(10px); /* for Safari */
+	display: flex;
+	flex-direction: column;
+  align-items: center;
+  justify-content: center;
+	z-index: 999;
+}
+
+.preloader img{
+
+  width: 50px;
+  height: 50px;
+
+}
+
+
+h1{
+
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #007bff;
+    padding: 10px;
+    margin-top: -10px;
+    color: white;
+}
+
+.items-btn {
+    
+    padding: 10px 200px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    margin-top: 40px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    
+}
+
+.items-btn:hover {
+    background-color: #0056b3;
+}
+
+
+.bi-caret-down-fill{
+
+    position: relative;
+   left: 180px;
+}
+
+
+.cart-container-items {
+
+  height: 300px;
+  width: 450px;
+  margin-left: 100px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  max-height: 0;
+ 
+  transition: max-height 0.5s ease;
+}
+
+.cart-container-items.open {
+  max-height: 500px; /* Adjust based on your content height */
+}
+
+/* Each cart item layout */
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  
+}
+
+/* Product image */
+.cart-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+/* Name and additional info wrapper */
+.cart-name {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+    color: #007bff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ 
+ 
+  
+}
+
+/* Quantity display */
+.quantity-number {
+  font-size: 12px;
+  font-weight: 500;
+  color: black;
+  margin-right: 60px;
+ 
+}
+
+/* Price styling */
+.cart-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: red;
+  margin-right: 20px;
+  white-space: nowrap;
+}
+
+
+
+.summary{
+
+    position: fixed;
+    top: 100px;
+    right: 250px;
+    width: 300px;
+
+}
+
+.summary h3{
+
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #007bff;
+
+}
+
+.summary p{
+
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 0px;
+    
+}
+
+.amount1{
+
+        float: right;
+        margin-right: 10px;
+        
+}
+
+#total3{
+
+    color: red;
+    font-weight: bolder;
+}
+
+
+.summary button{
+
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 60px;
+}
+
+.summary button:hover{
+
+    background-color: #0056b3;
+}
+
+
+
+.add-address h2{
+
+    margin-left: 100px;
+    text-align: start;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #0056b3;
+}
+
+.add-address p{
+
+    margin-left: 100px;
+    text-align: start;
+    font-size: 13px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #555;
+}
+
+#openModalBtn{
+
+    position: absolute;
+    left: 100px;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    background-color: #173861;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 8px;
+
+}
+
+#openModalBtn:hover{
+
+    background-color: #0056b3;
+}
+
+.saved-address-container p{
+
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #0056b3;
+    margin-top: 70px;
+    margin-left: 100px;
+}
+
+
+.saved-address{
+
+    border: 1px solid #ccc;
+    height: 110px;
+    width: 470px;
+    border-radius: 5px;
+    margin-left: 100px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+}
+
+
+
+
+
+.radio-icon{
+
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #0073ff;
+    margin-right: 10px;
+    display: inline-block;
+    position: relative;
+    top: 35px;
+    left: 0px;
+    cursor: pointer;
+}
+
+.radio-icon:hover{
+
+    background-color: #173861;
+}
+.radio-icon:checked{
+
+    background-color: #173861;
+}   
+
+.radio-icon:checked::after{
+
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #0073ff;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}       
+
+.add_fullName{
+
+    margin-top: 10px;
+    margin-left: 1px;
+    font-size: 15px;
+    color: black;
+    font-weight: 600;
+
+}
+
+.add_street,.add_area{
+    
+        position: relative;
+        top: 3px;
+        left: 33px;
+        font-size: 13px;
+        color: rgb(124, 124, 124);
+        font-weight: 500;
+
+}
+
+.add_city,.add_district,.add_pincode{
+
+    position: relative;
+    top: 3px;
+    left: 33px;
+    font-size: 13px;
+    color: rgb(124, 124, 124);
+    font-weight: 500;
+
+}
+
+.add_mobile{
+
+    position: relative;
+    top: 3px;
+    left: 33px;
+    font-size: 13px;
+    color: rgb(124, 124, 124);
+    font-weight: 500;
+    
+
+}
+
+.edit-button{
+        
+        padding: 5px 10px 5px 10px;
+        border-radius: 4px;
+        border: none;
+       background: none;
+        color: black;
+        cursor: pointer;
+       
+}
+
+
+
+
+
+/* General Modal Styling */
+.modal1,
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+}
+
+
+.modal-content1 h2, .modal-content h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: red;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+/* Modal Content Box */
+.modal-content1 {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 90%;
+  height: 430px;
+  max-width: 600px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation: slideDown 0.4s ease-out;
+}
+
+.modal-content{
+
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 90%;
+    height: 490px;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: slideDown 0.4s ease-out;
+}
+/* Slide-down animation */
+@keyframes slideDown {
+  from {transform: translateY(-50px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+
+/* Close button */
+.close,
+.close-button {
+  color: red;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close-button:hover {
+  color: rgb(190, 43, 43);
+}
+
+/* Input Fields */
+.modal-content1 input {
+  width: 100%;
+    padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.modal-content input{
+
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-top: 8px;
+}
+
+/* Labels */
+.modal-content1 label,
+.modal-content label {
+  font-weight: bold;
+  display: block;
+  font-size: 12px;
+  color: #0073ff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ 
+}
+
+/* Save Button */
+button.address,
+button.save-changes {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button.address:hover,
+button.save-changes:hover {
+  background-color: #45a049;
+}
+
+/* Add New Address Trigger Section */
+.add-address {
+  margin: 20px 0;
+  text-align: center;
+}
+
+
+
+.add-address button:hover {
+  background-color: #0056b3;
+}
+
+/* Container grid */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.container > div {
+  flex: 1 1 45%;
+  min-width: 200px;
+}
+
+
+
+
+
+/* responsive design */
+
+@media only screen and (max-width: 600px){
+
+    h1{
+
+        font-size: 24px;
+        width: 100%;
+        position: fixed;
+        left: 0;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    html{
+
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: auto;
+    }
+
+    .items-btn {
+        padding: 10px 100px;
+        font-size: 18px;
+        margin-top: 60px;
+        margin-left: 50px;
+    }
+
+    .bi-caret-down-fill{
+
+        position: relative;
+        left: 80px;
+    }
+
+    .cart-container-items {
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+        overflow-y: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+    }
+
+    .summary {
+        position: static;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .summary h3,
+    .summary p {
+        font-size: 14px;
+    }
+
+    .summary button {
+        width: 100%;
+    }
+
+    .add-address{
+
+        position: relative;
+        top: -60px;
+        left: -90px;
+    }
+
+    .saved-address-container p{
+
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+
+    .saved-address{
+
+        position: relative;
+        top: -10px;
+        left: -90px;
+        width: 100%;
+        bottom: 60px;
+    }
+    .place-order{
+
+        position: relative;
+        top: 330px;
+    }
+
+    .modal-content1,
+    .modal-content {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+        margin: 5% auto;
+        box-sizing: border-box;
+
+    }
+}
+
+
+
+
+

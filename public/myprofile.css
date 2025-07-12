@@ -1,0 +1,737 @@
+html{
+
+    scroll-behavior: smooth;
+}
+
+
+
+
+/*---------------------------Pre Loader Animation Styling Section Here------------------------------------*/
+
+
+#preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(255, 255, 255, 0.8); /* semi-transparent white */
+	backdrop-filter: blur(2px); /* applies blur to whatever's behind */
+	-webkit-backdrop-filter: blur(10px); /* for Safari */
+	display: flex;
+	flex-direction: column;
+  align-items: center;
+  justify-content: center;
+	z-index: 99999;
+}
+
+.preloader img{
+
+  width: 50px;
+  height: 50px;
+
+}
+
+
+
+
+
+.navbar{
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    background-color: #0073ff;
+    z-index: 999;
+   
+}
+
+.navbar a{
+  
+  text-decoration: none;
+}
+
+
+.navbar h1{
+
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+   text-align: center;
+}
+
+.navbar img{
+
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 530px;
+
+
+}
+
+
+.container {
+   border: 1px solid #ccc;
+   height: 450px;
+   width: 800px;
+    margin: 90px auto;
+   padding: auto;
+    border-radius: 10px;
+}
+
+.close-btn{
+
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+ border-radius: 75%;
+ border: none;
+    background-color: red;
+    color: white;
+}
+
+
+.close-btn:hover {
+  background-color: darkred;
+  transform: scaleY(0.9);
+}
+
+
+.items {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .items a {
+      position: relative;
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s ease;
+    }
+
+
+     .items a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      background-color: #007bff;
+      transition: width 0.3s ease;
+    }
+
+    .items a:hover::after,
+    .items a.active::after {
+      width: 100%;
+    }
+
+    .items a:hover {
+      color: #007bff;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+
+
+    .footer-bottom-section{
+
+  text-align: center;
+  width: 100%;
+  padding: 5px;
+  font-size: 13px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #eee;
+  background-color: #222;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+
+.tab-content h2{
+
+  font-size: 18px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  color: #007bff;
+}
+
+
+
+/* Profile View */
+.profile-view {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin-left: 80px;
+
+}
+
+.profile-view p {
+  margin: 20px 10px;
+  font-size: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.profile-view span{
+
+  margin-left: 20px;
+  color: #333;
+}
+
+#editBtn {
+  background: none;
+  border: none;
+ float: right;
+ font-size: 14px;
+  cursor: pointer;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content h3{
+
+  text-align: center;
+  color: red;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  height: auto;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 28px;
+  font-weight: 700;
+  color: red;
+  cursor: pointer;
+}
+
+.profile-form {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 12px;
+  color: #0073ff;
+}
+
+.profile-form input[type="text"],
+.profile-form input[type="date"] {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.profile-form input[type="radio"] {
+  margin-right: 5px;
+}
+
+.save-btn {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.save-btn:hover {
+  background-color: #218838;
+}
+
+
+
+
+/*-------------------------------------saved address styling section here------------------------------*/
+
+.saved-address-container p{
+
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #0073ff;
+}
+
+.saved-address{
+
+    border: 1px solid #ccc;
+    height: 210px;
+    width: 570px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: auto;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+}
+
+
+
+.add_fullName{
+
+  margin-left: 30px;
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+
+}
+
+.add_street,.add_area{
+    
+        position: relative;
+        top: 3px;
+        left: 33px;
+        font-size: 15px;
+        color: rgb(124, 124, 124);
+        font-weight: 500;
+
+}
+
+.add_city,.add_district,.add_pincode{
+
+    position: relative;
+    top: 3px;
+    left: 33px;
+    font-size: 15px;
+    color: rgb(124, 124, 124);
+    font-weight: 500;
+
+}
+
+.add_mobile{
+
+    position: relative;
+    top: 3px;
+    left: 33px;
+    font-size: 15px;
+    color: rgb(124, 124, 124);
+    font-weight: 500;
+    
+
+}
+
+.edit-button{
+
+  float: right;
+  margin-left: 20px;
+  background: none;
+  border: none;
+  color: #0073ff;
+}
+
+.delete-button{
+
+  float: right;
+  background: none;
+  border: none;
+  color: red;
+}
+
+
+
+
+/*------------------------------my orders styling section here-----------------------------------------*/
+.orders{
+
+        height: 350px;
+        width: 700px;
+        border: 1px solid #ccc;
+        position: absolute;
+        left: 330px;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow-y: scroll;
+        background-color: white;
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+       
+        
+
+    }
+
+
+
+.order-card{
+
+  padding: 10px;
+
+}
+
+.order-no{
+
+    font-size: 12px;
+    font-weight: 600;
+    color: #1d4c85;
+}
+
+.order-date{
+
+    font-size: 10px;
+    font-weight: 600;
+    color: #1d4c85;
+   
+}
+
+.address-details h3{
+
+    font-size: 15px;
+    font-weight: 600;
+    color: red;
+    margin-top: -10px;
+}
+
+.order-fullname{
+
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    margin-top: 10px;
+}
+
+.order-area{
+
+    font-size: 13px;
+    font-weight: 500;
+    color: #696868;
+    margin-top: 4px;
+    margin-left: 10px;
+}
+
+.order-city{
+    
+        font-size: 13px;
+        font-weight: 500;
+        color: #696868;
+        margin-top: 4px;
+        margin-left: 10px;
+}
+
+.order-mobile{
+
+        
+            font-size: 13px;
+            font-weight: 500;
+            color: #696868;
+            margin-top: 4px;
+            margin-left: 10px;
+}
+
+.cart-details h3{
+
+    font-size: 15px;
+    font-weight: 600;
+    color: #0073ff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.cart-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease;
+    background: #fff;
+    margin-top: 10px;
+    padding: 0 10px;
+    border-radius: 8px;
+    opacity: 0;
+}
+
+.cart-details.open {
+    max-height: 1000px; /* Large enough for content */
+    padding: 10px;
+    opacity: 1;
+}
+
+
+.cart-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.item-name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: -50px;
+    margin-left: 70px;
+}
+
+.item-size{
+
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-left: 70px;
+}
+
+.item-quantity{
+    
+        font-size: 12px;
+        font-weight: 400;
+        margin-top: -13px;
+        margin-left: 150px;
+}
+
+.item-price{
+
+        
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: -13px;
+            margin-left: 300px;
+            color: red;
+}
+
+.order-summary{
+
+    font-size: 12px;
+    font-weight: 300;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    height: 200px;
+}
+
+.seller-name{
+
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 30px;
+    
+}
+
+.billing-details{
+
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-left: 450px;
+    margin-bottom: 10px;
+}
+.toggle-btn {
+    padding: 2px;
+    background: none;
+    text-decoration: none;
+    color: #0073ff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 17px;
+    margin-left: 530px;
+}
+
+.toggle-btn:hover {
+   color: var(--color-black-1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* responsive design */
+
+@media only screen and (max-width: 600px) {
+
+    .navbar h1{
+
+    font-size: 18px;
+    margin-left: -100px;
+    }
+
+    
+  .navbar img {
+    left: 10px;
+  }
+
+  .container {
+    width: 90%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .close-btn{
+    position: absolute;
+    top: 90px;
+    right: 15px;
+    font-size: 18px;
+  }
+
+  .items {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    
+  }
+
+  .items a{
+
+    font-size: 12px;
+  }
+
+  .profile-view{
+
+    margin-left: 0;
+    width: 90%;
+    padding: 10px;
+  }
+
+  .profile-view p {
+    font-size: 12px;
+  }
+  
+  .delete-button{
+
+    font-size: 12px;
+  }
+
+  .modal{
+
+    overflow: auto;
+    margin: auto;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 15px;
+    margin-top: 70px;
+    overflow: auto;
+  }
+
+  .saved-address-container p{
+
+    font-size: 12px;
+  }
+
+  .saved-address{
+
+    width: 90%;
+    margin-left: 0px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    
+  }
+  .add_fullName{
+
+    font-size: 13px;
+  }
+
+  .add_street,.add_area,.add_city,.add_district,.add_pincode,.add_mobile{
+
+    font-size: 12px;
+  }
+
+
+  .orders{
+
+    position: relative;
+    left: 10px;
+    width: 95%;
+  }
+
+  .order-fullname{
+
+    font-size: 13px;
+  }
+
+  .order-area,.order-city,.order-mobile{
+
+    font-size: 10px;
+  }
+  .toggle-btn{
+    font-size: 12px;
+    margin-left: 200px;
+  }
+
+  .cart-details h3{
+
+    font-size: 12px;
+  }
+
+  .item-name{
+
+    font-size: 10px;
+  }
+ .item-price{
+
+    margin-left: 180px;
+    font-size: 10px;
+ }
+
+
+  
+ 
+
+  
+}

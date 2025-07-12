@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Form</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .payment-form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      width: 320px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .payment-form h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .payment-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+    .payment-form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .payment-form button {
+      width: 100%;
+      padding: 12px;
+      background-color: #009E60;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .payment-form button:hover {
+      background-color: #007c4d;
+    }
+  </style>
+</head>
+<body>
+  <form class="payment-form" onsubmit="handlePayment(event)">
+    <h2>Payment</h2>
+
+    <label for="name">Cardholder Name</label>
+    <input type="text" id="name" required />
+
+    <label for="card">Card Number</label>
+    <input type="text" id="card" maxlength="16" required />
+
+    <label for="expiry">Expiry Date</label>
+    <input type="month" id="expiry" required />
+
+    <label for="cvv">CVV</label>
+    <input type="password" id="cvv" maxlength="3" required />
+
+    <button type="submit">Pay Now</button>
+  </form>
+
+  <script>
+function handlePayment(event) {
+    event.preventDefault();
+
+    // 1. Fetch data from localStorage or from your app state
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    const selectedAddress = JSON.parse(localStorage.getItem("selectedAddress"));
+    const total = parseFloat(localStorage.getItem("totalAmount")) || 0;
+
+   
+
+    // 2. Prepare the order object
+    const order = {
+        address: selectedAddress,
+        items: cartItems,
+        total: total,
+        date: new Date().toLocaleDateString("en-IN", {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric'
+        })
+    };
+
+    // 3. Save to orderHistory
+    const orderHistory = JSON.parse(localStorage.getItem("orderHistory")) || [];
+    orderHistory.push(order);
+    localStorage.setItem("orderHistory", JSON.stringify(orderHistory));
+
+    // 4. Clear cart and redirect
+    localStorage.removeItem("cart");
+    localStorage.removeItem("totalAmount");
+
+    alert("Payment successful! Your order has been placed.");
+
+    // Redirect to order history
+    window.location.href = "thankyou.html";
+}
+</script>
+
+</body>
+</html>
+
+</body>
+</html>

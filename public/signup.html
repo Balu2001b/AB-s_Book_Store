@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+
+    
+    <link rel="icon" href="./Book Logo.jpeg">
+
+     <!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<link rel="stylesheet" href="responsive_screen.css">
+
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" 
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+
+    
+<style>
+
+    body{
+
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .container{
+
+        height: 70px;
+        width: 100%;
+       display: flex;
+       justify-content: center;
+       background-color: #0073ff;
+       gap: 10px;
+
+    }
+
+    .container img{
+       
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+
+    }
+
+    .container h1{
+
+        font-size: 25px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: white;
+    }
+
+ 
+
+/* Form Container */
+.login-details {
+  background-color: #fff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin: 5% 30%;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  
+}
+
+.input-box {
+  width: 90%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border 0.3s ease;
+}
+
+.input-box:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Link */
+
+.form a{
+
+    text-decoration: none;
+    color: #0073ff;
+    font-weight: 700;
+}
+/* Button */
+.form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+  background-color: #333;
+}
+
+
+
+.toast {
+    min-width: 250px;
+    background-color: #009E60;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 16px;
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    font-size: 17px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Show the toast message */
+.toast.show {
+    animation: slideFadeIn 0.6s ease forwards, slideFadeOut 0.6s ease 2.8s forwards;
+}
+
+/* Smooth fade in and slide down */
+@keyframes slideFadeIn {
+    from {
+        top: 0;
+        opacity: 0;
+    }
+    to {
+        top: 70px;
+        opacity: 1;
+    }
+}
+
+/* Smooth fade out and slide up */
+@keyframes slideFadeOut {
+    from {
+        top: 70px;
+        opacity: 1;
+    }
+    to {
+        top: 0;
+        opacity: 0;
+    }
+}
+
+/* Optional color variations */
+.toast.success { background-color: #28a745; }
+.toast.error   { background-color: #dc3545; }
+.toast.info    { background-color: #007bff; }
+
+
+
+@media only screen and (max-width: 600px) {
+
+
+    .container{
+
+        width: 100%;
+    }
+  .login-details {
+
+    margin-left: 10px;
+    width: 80%;
+    
+  }
+
+  .form button {
+    font-size: 14px;
+  }
+}
+
+
+   
+
+</style>
+
+
+</head>
+<body>
+
+<div class="container">
+    <img src="./Book Logo.jpeg" alt="">
+    <h1>Devotee's Book Store</h1>
+
+
+</div>
+  <div class="login-details">
+  <form action="/signup" method="POST" id="signupForm" class="form">
+
+    <label for="">Username</label>
+    <input type="text" class="input-box" placeholder="Enter username" id="username">
+
+    <label for="">Email Id</label>
+    <input type="text" class="input-box" placeholder="Enter email" id="loginEmail">
+
+    <label for="">Password</label>
+    <input type="password" class="input-box" placeholder="Enter password" id="loginPassword">
+
+    
+    <button type="submit">Signup</button>
+
+    <p>Already account exists? <a href="login.html">Login</a></p>
+  </form>
+</div>
+
+
+
+
+    <script>
+  document.getElementById("signupForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("username").value.trim();
+    const email = document.getElementById("loginEmail").value.trim();
+    const password = document.getElementById("loginPassword").value.trim();
+
+    // ✅ Basic frontend validation
+    if (!name || !email || !password) {
+      showToast("Please fill in all fields", "error");
+      return;
+    }
+
+    try {
+      const res = await fetch("/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password })
+      });
+
+      if (res.status === 201) {
+        showToast("Signup successful!", "success");
+        setTimeout(() => window.location.href = "login.html", 1500);
+      } else if (res.status === 400) {
+        showToast("Email already exists", "error");
+      } else {
+        showToast("Unexpected error", "error");
+      }
+    } catch (error) {
+      showToast("Server error. Try again later.", "error");
+    }
+  });
+
+ function showToast(message, type = "success") {
+  const toast = document.createElement("div");
+  toast.className = `toast ${type} show`;
+  toast.innerText = message;
+  document.body.appendChild(toast);
+
+  setTimeout(() => toast.remove(), 4000); // after animation
+}
+
+</script>
+
+    
+</body>
+</html>
